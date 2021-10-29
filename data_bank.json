@@ -1,5 +1,17 @@
-{
-  "title": "O cortiço",
-  "author": "Aluísio de Azevedo",
-  "resenha": "Ambientado nos bairros ..."
-}
+[
+  {
+    "title": "O cortiço",
+    "author": "Aluísio de Azevedo",
+    "resenha": "Ambientado nos bairros ..."
+  },
+  {
+    "title": "Persuasão",
+    "author": "Jane Austen",
+    "resenha": "A linda, inteligente ..."
+  },
+  {
+    "title": "Odisseia",
+    "author": "Homero",
+    "resenha": "Direto da antiga ..."
+  }
+]

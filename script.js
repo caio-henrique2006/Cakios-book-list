@@ -1,3 +1,4 @@
+// Processo de "GET" o json
 var requestJSON = 'https://raw.githubusercontent.com/caio-henrique2006/Cakios-book-list/main/data_bank.json';
 var request = new XMLHttpRequest();
 request.open('GET', requestJSON);
@@ -11,5 +12,7 @@ request.onload = function() {
 }
 
 function books(estante){
-	console.log(estante['title']);
-}
+	for(var i = 0; i < 2; i++){
+			console.log(estante);
+		}
+	}

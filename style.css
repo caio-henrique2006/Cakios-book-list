@@ -1,0 +1,18 @@
+h1{
+	text-align: center;
+	background-color: blue;
+	margin: -10px -10px -10px -10px;
+}
+.search{
+	text-align: left;
+}
+main{
+	float: left;
+}
+nav{
+	float: right;
+}
+.filter{
+	font-size: 30px;
+	margin-right: 300px;
+}

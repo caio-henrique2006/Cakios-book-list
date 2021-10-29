@@ -12,7 +12,7 @@ request.onload = function() {
 }
 
 function books(estante){
-	for(var i = 0; i < 2; i++){
-			console.log(estante);
+	for(var i = 0; i < estante.length; i++){
+			console.log(estante[i].title);
 		}
 	}

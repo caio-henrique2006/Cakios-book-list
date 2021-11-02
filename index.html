@@ -9,13 +9,15 @@
 <body>
 	<!--Cabeçario simples-->
 	<header>
-		<h1>Cakios book list</h1>
+		<h1 id="title_h1">Cakios book list</h1>
 	</header>
 
 	<!--Conteúdo principal, contém a barra de pesquisa e o resultados da pesquisa-->
 	<main>
 		<h2 class="search">Pesquise um livro:<input class="input_search_bar" type="search"><input class="input_search_submit" type="submit" value="enviar"></h2>
-		<p class="p_search_result"></p>
+		<div id="result">
+
+		</div>
 	</main>
 
 	<!--Conteúdo para navegação, contém o sistema de filtragem de pesquisa e a quantidade de livros obtidos-->

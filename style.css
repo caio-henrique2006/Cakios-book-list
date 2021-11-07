@@ -17,11 +17,24 @@ nav{
 	margin-right: 300px;
 }
 .class_div{
-	margin-top: ;
-	margin-bottom: 20px;
+	clear: left;
+	float: left;
+	margin-top: 5px;
 	margin-left: 10px;
+	padding-right: 100px;
 	border-bottom: 1px solid gray;
 }
 .class_title{
-	margin-bottom: -10px;
+	font-size: 22px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	padding-right: 100px;
+	float: left;
+}
+.class_img{
+	margin-top: 5px;
+	margin-bottom: 5px;
+	margin-right: 10px;
+	float: left;
+	width: 50px;
 }

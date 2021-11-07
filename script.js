@@ -13,8 +13,10 @@ request.onload = function() {
 
 function books(estante){
 	for(var i = 0; i < estante.length; i++){
-		const p_title = document.createElement("p");
-		const p_author = document.createElement("p");
+		const br = document.createElement("br");
+		const image = document.createElement("img");
+		const p_title = document.createElement("a");
+		const p_author = document.createElement("a");
 		const div = document.createElement("div");
 
 		const text_title = document.createTextNode(estante[i].title);
@@ -25,16 +27,18 @@ function books(estante){
 		const div_result = document.getElementById("result");
 		div_result.appendChild(div);
 
+		div.appendChild(image);
 		div.appendChild(p_title);
+		div.appendChild(br);
 		div.appendChild(p_author);
-
-		const class_div = "class_div";
-		const class_title = "class_title";
-		const class_author = "class_author";
 		
-		div.setAttribute("class", class_div);
-		p_title.setAttribute("class", class_title);
-		p_author.setAttribute("class", class_author);
+		image.setAttribute("src", estante[i].image);
+		image.setAttribute("class", "class_img");
+		div.setAttribute("class", "class_div");
+		p_title.setAttribute("class", "class_title");
+		p_title.setAttribute("href", "#");
+		p_author.setAttribute("class", "class_author");
+		p_author.setAttribute("href", "#");
 	}
 }
 

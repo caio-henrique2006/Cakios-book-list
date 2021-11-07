@@ -3,7 +3,7 @@ h1{
 	background-color: blue;
 	margin: -10px -10px -10px -10px;
 }
-.search{
+#search{
 	text-align: left;
 }
 main{
@@ -12,13 +12,16 @@ main{
 nav{
 	float: right;
 }
-.filter{
+#filter{
 	font-size: 30px;
 	margin-right: 300px;
 }
-#id_div{
-	margin-bottom: 50px;
+.class_div{
+	margin-top: ;
+	margin-bottom: 20px;
 	margin-left: 10px;
+	border-bottom: 1px solid gray;
 }
-#id_title{
+.class_title{
+	margin-bottom: -10px;
 }

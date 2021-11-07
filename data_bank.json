@@ -2,26 +2,31 @@
   {
     "title": "O cortiço",
     "author": "Aluísio de Azevedo",
-    "resenha": "Ambientado nos bairros ..."
+    "resenha": "Ambientado nos bairros ...",
+    "image": "img/o_cortiço.jpg"
   },
   {
     "title": "Persuasão",
     "author": "Jane Austen",
-    "resenha": "A linda, inteligente ..."
+    "resenha": "A linda, inteligente ...",
+    "image": "img/persuasao.jpg"
   },
   {
     "title": "Odisseia",
     "author": "Homero",
-    "resenha": "Direto da antiga ..."
+    "resenha": "Direto da antiga ...",
+    "image": "img/odisseia.jpg"
   },
   {
     "title": "Em chamas",
     "author": "Collins",
-    "resenha": "Morte e sangue ..."
+    "resenha": "Morte e sangue ...",
+    "image": "img/em_chamas.jpg"
   },
   {
     "title": "A menina que roubava livros",
     "author": "Markus Zusak",
-    "resenha": "E se a morte ..."
+    "resenha": "E se a morte ...",
+    "image": "a_menina_que_roubava_livros.jpg"
   }
 ]

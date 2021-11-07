@@ -28,27 +28,13 @@ function books(estante){
 		div.appendChild(p_title);
 		div.appendChild(p_author);
 
-		const id_div = "id_div";
-		const id_title = "id_title";
-		const id_author = "id_author";
+		const class_div = "class_div";
+		const class_title = "class_title";
+		const class_author = "class_author";
 		
-		div.setAttribute("id", id_div);
-		p_title.setAttribute("id", id_title);
-		p_author.setAttribute("id", id_author);
+		div.setAttribute("class", class_div);
+		p_title.setAttribute("class", class_title);
+		p_author.setAttribute("class", class_author);
 	}
 }
 
-/*
-const p_title = document.createElement("p");
-const text_title = document.createTextNode("Hello World");
-p_title.appendChild(text_title);
-
-const div_result = document.getElementById("result");
-div_result.appendChild(p_title);
-
-var id_name = "id_para";
-
-p_title.setAttribute("id", id_name);
-
-document.getElementById(id_name).style.border = "solid";
-*/

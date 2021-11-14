@@ -33,18 +33,18 @@
     "title": "Eu sou Malala",
     "author": "Malala Yousafzai",
     "resenha": "...",
-    "image" : "eu_sou_malala.jpg"
+    "image" : "img/eu_sou_malala.jpg"
   },
   {
     "title": "O mundo de sofia",
     "author": "Jostein Gaarder",
     "resenha": "...",
-    "image": "o_mundo_de_sofia.jpg"
+    "image": "img/o_mundo_de_sofia.jpg"
   },
   {
     "title": "Emma",
     "author": "Jane Austen",
     "resenha": "...",
-    "image": "emma.jpg"
+    "image": "img/emma.jpg"
   }
 ]

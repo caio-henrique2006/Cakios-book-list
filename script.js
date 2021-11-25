@@ -1,3 +1,7 @@
+// Resposta search:
+const R_search = document.getElementById("input_search_bar");
+const submit_search = document.querySelector(".input_search_submit");
+
 // Processo de "GET" o json
 var requestJSON = 'https://raw.githubusercontent.com/caio-henrique2006/Cakios-book-list/main/data_bank.json';
 var request = new XMLHttpRequest();
@@ -11,39 +15,86 @@ request.onload = function() {
   books(list); // Direcionando essa variável a uma função;
 }
 
-function books(estante){
-	for(var i = 0; i < estante.length; i++){
-		// Criando todos os elementos HTML que vou usar:
-		const br = document.createElement("br");
-		const image = document.createElement("img");
-		const p_title = document.createElement("a");
-		const p_author = document.createElement("a");
-		const div = document.createElement("div");
+function print_result(estante, i, div){
+	// Criando todos os elementos HTML que vou usar:
+	const br = document.createElement("br");
+	const image = document.createElement("img");
+	const p_title = document.createElement("a");
+	const p_author = document.createElement("a");
 
-		// Criando e colocando texto nos parágrafos:
-		const text_title = document.createTextNode(estante[i].title);
-		const text_author = document.createTextNode(estante[i].author);
-		p_title.appendChild(text_title);
-		p_author.appendChild(text_author);
+	// Criando e colocando texto nos parágrafos:
+	const text_title = document.createTextNode(estante[i].title);
+	const text_author = document.createTextNode(estante[i].author);
+	p_title.appendChild(text_title);
+	p_author.appendChild(text_author);
 
-		// Definindo um div para colocar os elementos:
-		const div_result = document.getElementById("result");
-		div_result.appendChild(div);
+	// Definindo um div para colocar os elementos:
+	const div_result = document.getElementById("result");
 
-		// Colocando todos os elementos no div:
-		div.appendChild(image);
-		div.appendChild(p_title);
-		div.appendChild(br);
-		div.appendChild(p_author);
-		
-		// Setando atributos:
-		image.setAttribute("src", estante[i].image);
-		image.setAttribute("class", "class_img");
-		div.setAttribute("class", "class_div");
-		p_title.setAttribute("class", "class_title");
-		p_title.setAttribute("href", "#");
-		p_author.setAttribute("class", "class_author");
-		p_author.setAttribute("href", "#");
-	}
+	// Colocando todos os elementos no div:
+	div.appendChild(image);
+	div.appendChild(p_title);
+	div.appendChild(br);
+	div.appendChild(p_author);
+	
+	// Setando atributos:
+	image.setAttribute("src", estante[i].image);
+	image.setAttribute("class", "class_img");
+	p_title.setAttribute("class", "class_title");
+	p_title.setAttribute("href", "#");
+	p_author.setAttribute("class", "class_author");
+	p_author.setAttribute("href", "#");
 }
 
+function books(estante){
+
+	submit_search.onclick = function(){
+		// Remove o div existente
+		const div_remove = document.querySelector(".main_div")
+		div_remove.parentElement.removeChild(div_remove);
+
+		const div = document.createElement("div");
+		const div_result = document.getElementById("result");
+		div_result.appendChild(div);
+		div.setAttribute("class", "main_div");
+
+		const search = R_search.value;
+
+		for(var i = 0; i < estante.length; i++){
+			var ind_x = 0;
+			var ind_y = search.length;
+
+			if(estante[i].title === search){
+
+				// Substituí o div anterior.
+				const div = document.createElement("div");
+				const div_result = document.querySelector(".main_div");
+				div_result.appendChild(div);
+				div.setAttribute("class", "class_div");
+
+				// Printa o resultado da pesquisa;
+				print_result(estante, i, div);
+				}else{
+			while(ind_y <= estante[i].title.length){	
+				console.log(estante[i].title.slice(ind_x, ind_y));
+				if(estante[i].title.slice(ind_x, ind_y) === search){
+					console.log(estante[i].title.slice(ind_x, ind_y));
+
+					// Substituí o div anterior.
+					const div = document.createElement("div");
+					const div_result = document.querySelector(".main_div");
+					div_result.appendChild(div);
+					div.setAttribute("class", "class_div");
+
+					// Printa o resultado da pesquisa;
+					print_result(estante, i, div);
+					break;
+				}else{
+					ind_x += 1;
+					ind_y += 1;
+				}
+			}
+		}
+	}
+}
+}

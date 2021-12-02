@@ -15,6 +15,7 @@ request.onload = function() {
   books(list); // Direcionando essa variável a uma função;
 }
 
+// Uma função que guarda todo o processo de colocar o resultado da pesquisa na tela.
 function print_result(estante, i, div){
 	// Criando todos os elementos HTML que vou usar:
 	const br = document.createElement("br");
@@ -49,36 +50,36 @@ function print_result(estante, i, div){
 function books(estante){
 
 	submit_search.onclick = function(){
-		// Remove o div existente
+
+		// Guarda o valor da pesquisa;
+		const search = R_search.value;
+
+		// Remove o div existente;
 		const div_remove = document.querySelector(".main_div")
 		div_remove.parentElement.removeChild(div_remove);
 
+		// Cria div main_div;
 		const div = document.createElement("div");
 		const div_result = document.getElementById("result");
 		div_result.appendChild(div);
 		div.setAttribute("class", "main_div");
 
-		const search = R_search.value;
 
-		for(var i = 0; i < estante.length; i++){
-			var ind_x = 0;
-			var ind_y = search.length;
+		if(search.length <= 2){
+			const warning = document.createElement("p");
+			warning.appendChild(document.createTextNode("Digite, pelo menos, 3 caracteres !!!"));
+			const div = document.querySelector(".main_div");
+			div.appendChild(warning);
+			warning.setAttribute("class", "warning_class")
+		}else{
 
-			if(estante[i].title === search){
+			// Inicia o proscesso de pesquisa;
+			for(var i = 0; i < estante.length; i++){
+				var ind_x = 0;
+				var ind_y = search.length;
 
-				// Substituí o div anterior.
-				const div = document.createElement("div");
-				const div_result = document.querySelector(".main_div");
-				div_result.appendChild(div);
-				div.setAttribute("class", "class_div");
-
-				// Printa o resultado da pesquisa;
-				print_result(estante, i, div);
-				}else{
-			while(ind_y <= estante[i].title.length){	
-				console.log(estante[i].title.slice(ind_x, ind_y));
-				if(estante[i].title.slice(ind_x, ind_y) === search){
-					console.log(estante[i].title.slice(ind_x, ind_y));
+				// Primeiro inicia uma pesquisa direta: Pesquisa ?= título;
+				if(estante[i].title.toLowerCase() === search.toLowerCase()){
 
 					// Substituí o div anterior.
 					const div = document.createElement("div");
@@ -88,13 +89,25 @@ function books(estante){
 
 					// Printa o resultado da pesquisa;
 					print_result(estante, i, div);
-					break;
-				}else{
-					ind_x += 1;
-					ind_y += 1;
-				}
+					}else{
+						// Pesquisa usando as partes dos títulos: Pesquisa ?= título[slice];
+					while(ind_y <= estante[i].title.length){	
+						if(estante[i].title.slice(ind_x, ind_y).toLowerCase() === search.toLowerCase()){
+
+							// Substituí o div anterior.
+							const div = document.createElement("div");
+							const div_result = document.querySelector(".main_div");
+							div_result.appendChild(div);
+							div.setAttribute("class", "class_div");
+
+							// Printa o resultado da pesquisa;
+							print_result(estante, i, div);
+							break;
+						}else{
+							ind_x += 1;
+							ind_y += 1;
+						}}}
 			}
 		}
 	}
-}
 }

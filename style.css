@@ -12,6 +12,9 @@ main{
 nav{
 	float: right;
 }
+.warning_class{
+	font-size: 15px;
+}
 .filter{
 	font-size: 30px;
 	margin-right: 300px;

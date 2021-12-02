@@ -1,3 +1,4 @@
+/*CSS do projeto Cakios-book-list*/
 h1{
 	text-align: center;
 	background-color: blue;
@@ -12,13 +13,11 @@ main{
 nav{
 	float: right;
 }
+/*CSS do aviso de poucos caracteres na pesquisa*/
 .warning_class{
 	font-size: 15px;
 }
-.filter{
-	font-size: 30px;
-	margin-right: 300px;
-}
+/*CSS dos resultados da pesquisa na vertical*/
 .class_div{
 	clear: left;
 	float: left;
@@ -36,7 +35,6 @@ nav{
 	padding-left: 5px;
 	padding-right: 5px;
 	float: left;
-	
 }
 .class_title{
 	color: black;

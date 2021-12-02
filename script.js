@@ -1,4 +1,4 @@
-// Resposta search:
+// variáveis que guardam o valor pesquisado e o estado do submit.
 const R_search = document.getElementById("input_search_bar");
 const submit_search = document.querySelector(".input_search_submit");
 
@@ -10,9 +10,9 @@ request.open('GET', requestJSON);
 request.responseType = 'json';
 request.send();
 
-request.onload = function() {
+request.onload = function() { // Função que executa apenas quando a página é carregada;
   var list = request.response; // Pegando a resposta do XMLHttp e colocando em uma variável;
-  books(list); // Direcionando essa variável a uma função;
+  books(list); // Função que executará todo o proscesso;
 }
 
 // Uma função que guarda todo o processo de colocar o resultado da pesquisa na tela.
@@ -23,11 +23,9 @@ function print_result(estante, i, div){
 	const p_title = document.createElement("a");
 	const p_author = document.createElement("a");
 
-	// Criando e colocando texto nos parágrafos:
-	const text_title = document.createTextNode(estante[i].title);
-	const text_author = document.createTextNode(estante[i].author);
-	p_title.appendChild(text_title);
-	p_author.appendChild(text_author);
+	// Colocando texto nos parágrafos de título e autor(a):
+	p_title.appendChild(document.createTextNode(estante[i].title));
+	p_author.appendChild(document.createTextNode(estante[i].author));
 
 	// Definindo um div para colocar os elementos:
 	const div_result = document.getElementById("result");
@@ -49,6 +47,7 @@ function print_result(estante, i, div){
 
 function books(estante){
 
+	// Executa a função anônima quando o botão submit é apertado.
 	submit_search.onclick = function(){
 
 		// Guarda o valor da pesquisa;
@@ -58,22 +57,24 @@ function books(estante){
 		const div_remove = document.querySelector(".main_div")
 		div_remove.parentElement.removeChild(div_remove);
 
-		// Cria div main_div;
+		// Cria div: main_div;
 		const div = document.createElement("div");
 		const div_result = document.getElementById("result");
 		div_result.appendChild(div);
 		div.setAttribute("class", "main_div");
 
-
+		// Analisa se o valor pesquisado tem pelo menos 3 caracteres;
 		if(search.length <= 2){
-			const warning = document.createElement("p");
-			warning.appendChild(document.createTextNode("Digite, pelo menos, 3 caracteres !!!"));
-			const div = document.querySelector(".main_div");
-			div.appendChild(warning);
-			warning.setAttribute("class", "warning_class")
+
+			const warning = document.createElement("p"); // Cria elemento
+			warning.appendChild(document.createTextNode("Digite, pelo menos, 3 caracteres !!!")); // Coloca texto;
+			const div = document.querySelector(".main_div"); // Referência o div
+			div.appendChild(warning); // Coloca no div;
+			warning.setAttribute("class", "warning_class") // Seta atributo;
+
 		}else{
 
-			// Inicia o proscesso de pesquisa;
+			// Inicia o processo de pesquisa;
 			for(var i = 0; i < estante.length; i++){
 				var ind_x = 0;
 				var ind_y = search.length;
@@ -89,7 +90,8 @@ function books(estante){
 
 					// Printa o resultado da pesquisa;
 					print_result(estante, i, div);
-					}else{
+					}
+					else{
 						// Pesquisa usando as partes dos títulos: Pesquisa ?= título[slice];
 					while(ind_y <= estante[i].title.length){	
 						if(estante[i].title.slice(ind_x, ind_y).toLowerCase() === search.toLowerCase()){
@@ -106,7 +108,9 @@ function books(estante){
 						}else{
 							ind_x += 1;
 							ind_y += 1;
-						}}}
+						}
+					}
+				}
 			}
 		}
 	}
